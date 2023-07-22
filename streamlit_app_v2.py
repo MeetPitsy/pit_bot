@@ -2,7 +2,7 @@ import streamlit as st
 import replicate
 import os
 
-# App title
+# PITSY CHATBOT
 st.set_page_config(page_title="💬 PitsyBot")
 
 # Replicate Credentials
