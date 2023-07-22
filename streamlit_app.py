@@ -18,6 +18,7 @@ with st.sidebar:
         else:
             st.success('Proceed to entering your prompt message!', icon='👉')
     st.markdown('📖 Learn how to build this app in this [blog](#link-to-blog)!')
+replicate_api = 'my_api_token'
 os.environ['REPLICATE_API_TOKEN'] = str(replicate_api)
 
 # Store LLM generated responses
