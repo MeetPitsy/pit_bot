@@ -3,11 +3,11 @@ import replicate
 import os
 
 # App title
-st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
+st.set_page_config(page_title="💬 PitsyBot")
 
 # Replicate Credentials
 with st.sidebar:
-    st.title('🦙💬 Llama 2 Chatbot')
+    st.title('💬 PitsyBot')
     if 'REPLICATE_API_TOKEN' in st.secrets:
         st.success('API key already provided!', icon='✅')
         replicate_api = st.secrets['REPLICATE_API_TOKEN']
@@ -33,7 +33,7 @@ with st.sidebar:
     max_length = st.sidebar.slider('max_length', min_value=64, max_value=4096, value=512, step=8)
     
     st.markdown('📖 Learn how to build this app in this [blog](#link-to-blog)!')
-os.environ['REPLICATE_API_TOKEN'] = replicate_api
+os.environ['REPLICATE_API_TOKEN'] = str(replicate_api)
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
