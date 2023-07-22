@@ -12,7 +12,7 @@ with st.sidebar:
         st.success('API key already provided!', icon='✅')
         replicate_api = st.secrets['REPLICATE_API_TOKEN']
     else:
-        replicate_api = st.text_input('Enter Replicate API token:', type='password')
+        replicate_api_token = st.text_input('Enter Replicate API token:', type='password')
         if not (replicate_api.startswith('r8_') and len(replicate_api)==40):
             st.warning('Please enter your credentials!', icon='⚠️')
         else:
@@ -33,7 +33,7 @@ with st.sidebar:
     max_length = st.sidebar.slider('max_length', min_value=64, max_value=4096, value=512, step=8)
     
     st.markdown('📖 Learn how to build this app in this [blog](#link-to-blog)!')
-os.environ['REPLICATE_API_TOKEN'] = str(replicate_api)
+os.environ['REPLICATE_API_TOKEN'] = str(replicate_api_token)
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
